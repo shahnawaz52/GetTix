@@ -17,7 +17,7 @@
 - Expiration - Watches for orders to be created, cancels them after 15 min
 - Payments - Handles credit card payments. Cancels orders if payments fails, completes if payment succeeds   
 
-# What's this cover
+# What's this project cover
 
 Microservices with Event Bus Architecture - NATS Messaging - Load Balancing with Ingress NGINX - Common module between services with npm - Decentralized Authentication with JWT - Resource Versioning for concurrency issues - Redis Job queue wwith bull - Stripe, 3rd party payment service - Server Side Rendering with Next.js - Test Driven Development - CI/CD with Github Action - Deploy to Digital Ocean
 
