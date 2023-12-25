@@ -15,6 +15,7 @@ router.put('/api/tickets/:id', requireAuth, [
         throw new NotFoundError();
     }
 
+    // Throw Not Authorized Error
     if(ticket.userId !== req.currentUser!.id) {
         throw new NotAuthorizedError();
     }
