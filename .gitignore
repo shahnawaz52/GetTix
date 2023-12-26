@@ -4,3 +4,4 @@ client/.next
 common/node_modules
 common/build
 tickets/node_modules
+nats-test/node_modules
