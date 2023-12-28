@@ -1,4 +1,4 @@
-# GetTix
+# Ticketing System
 
 ### Overview
 
