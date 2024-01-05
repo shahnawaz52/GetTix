@@ -5,3 +5,4 @@ common/node_modules
 common/build
 tickets/node_modules
 nats-test/node_modules
+orders/node_modules
