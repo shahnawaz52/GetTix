@@ -44,7 +44,7 @@ The website being developed here is a ticketing website where you can: signin/si
 
 ### Demo
 
-<video src="https://github.com/user-attachments/assets/954f01cb-1e96-4b80-aa06-5576b4c22551" autoplay loop muted playsinline></video>
+<video src="https://github.com/user-attachments/assets/4ea8875f-08fa-471d-9c94-a48e6fc04612" autoplay loop muted playsinline></video>
 
 ### How to Run
 
