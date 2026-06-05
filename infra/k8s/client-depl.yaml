@@ -15,6 +15,12 @@ spec:
       containers:
         - name: client
           image: shan52/client
+          env:
+            - name: NEXT_PUBLIC_STRIPE_PUB_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: stripe-secret
+                  key: STRIPE_PUB_KEY
 ---
 apiVersion: v1
 kind: Service

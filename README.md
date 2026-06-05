@@ -29,15 +29,37 @@ The website which being developed here is a ticketing website where you can: sig
 
 ### How to Run
 
-1. Download & install Docker [Desktop](https://www.docker.com/products/docker-desktop/) & [Skaffold](https://skaffold.dev/)
-2. Run the [Kubernetes Server](https://collabnix.com/wp-content/uploads/2019/03/image-12-1024x704.png) on docker desktop
-3. Restart your terminal
-4. Install ingress-nginx to your kubernetes server by running the following command:
-- `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml`
-5. Add Stripe's API key as `STRIPE_KEY` to your environment variables.
-6. Add your stripe's api key & jwt key to kubectl secrets by running the following command:
-- `kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=INSERT_STRIPE_API_KEY`
-- `kubectl create secret generic jwt-secret --from-literal JWT_KEY=INSERT_RANDOM_STRING`
-7. Add `127.0.0.1 ticketing.dev` line on the bottom of your system hosts file
-8. Run Skaffold dev on terminal in project's root directory
-9. View the running site on `ticketing.dev`
+#### Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
+- [Skaffold](https://skaffold.dev/docs/install/) installed (`brew install skaffold` on macOS)
+- A [Stripe](https://stripe.com/) account (for the publishable & secret API keys)
+
+#### Steps
+
+1. **Enable Kubernetes** in Docker Desktop  
+   Open Docker Desktop → Settings → Kubernetes → Check _"Enable Kubernetes"_ → Click _Apply & Restart_. Wait until the Kubernetes status indicator turns green.
+
+2. **Install ingress-nginx controller**
+   ```bash
+   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.2/deploy/static/provider/cloud/deploy.yaml
+   ```
+   Verify it's running:
+   ```bash
+   kubectl get pods -n ingress-nginx
+   ```
+
+3. **Create Kubernetes secrets**  
+   The cluster needs two secrets before the pods can start:
+   ```bash
+   kubectl create secret generic jwt-secret --from-literal JWT_KEY=INSERT_RANDOM_STRING
+   kubectl create secret generic stripe-secret \
+     --from-literal STRIPE_KEY=sk_test_INSERT_STRIPE_SECRET_KEY \
+     --from-literal STRIPE_PUB_KEY=pk_test_INSERT_STRIPE_PUBLISHABLE_KEY
+   ```
+
+4. **Start the project**
+   ```bash
+   skaffold dev
+   ```
+   Run this from the project's root directory. Skaffold will build all service images and deploy them to your local Kubernetes cluster.
