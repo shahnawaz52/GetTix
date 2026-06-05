@@ -42,6 +42,10 @@
 
 The website being developed here is a ticketing website where you can: signin/signup, list tickets, buy a ticket, checkout with stripe & see the list of orders. When you click purchase on a ticket page, the system will lock the ticket for 15 minutes and no one can buy it. You'll then be redirected to the order page with checkout powered by stripe payment. There you'll enter your card number and pay the ticket. A text will appear, showing the status of the order. On the other hand, if you fail to purchase the ticket within 15 minutes, then the system will unlock the ticket and your order will be cancelled. You can also see the order history on the My Orders page
 
+### Demo
+
+[![Watch the demo](https://drive.google.com/thumbnail?id=10aw8OpNaBUOKgUJP90hvzve_rzV8ZEuq&sz=w1280)](https://drive.google.com/file/d/10aw8OpNaBUOKgUJP90hvzve_rzV8ZEuq/view)
+
 ### How to Run
 
 #### Prerequisites
