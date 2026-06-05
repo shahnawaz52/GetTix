@@ -1,5 +1,9 @@
 # Ticketing System
 
+## Architecture
+
+![Architecture Diagram](architecture.png)
+
 ### Overview
 
 - Users can list a ticket for an event (concert, sports) for sale
